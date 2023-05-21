@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "resonant-gizmo-387405",
+  "private_key_id": "99f6c39a87e26e79c4509e74be7137f37697fb2f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC6Elhx/6fPBoHd\nqP+moxFJfmZLKiHC/nM177tmuXcrAprKxSq76dmBWM54GCJ1TXFMq1ewRU5+nSu4\nyicr/ngPfunN34QrxZnr9IdeJzYUjXAYNNbjiJwiQhc3K0TUuOP0wqpwmf674QSz\n9iVfV1/vYaKE48q6eSi6HUWSW9bkER7R5qaIhsDDjDn0J4PI/JpL+D3Pb36L6/GG\nJHo80Vf2cHHN2l5W8A7GvaNeVCJ8LwPkyC0KOFsohoC5hajR0MBLUKg797+/epvA\nK1gBZI8wbZWl93kvxr3MENgYuSZTVwuVsqq9IUQEh7PXepEpWAY9oY5Hs/tnpsAK\ntS/XdgflAgMBAAECggEAAeqlwkZyHc0kTs2kFON5znVwsjMBph7IiurVSRPwrb7i\nrDAdbJ78xTSOa3wojk4PjfNEELYYcbztAgPRC5ODYvnf1Vji5WMga5oF8yFGKq5U\nFBrzoLEPFkCmH3fnLYxaMSX4Xl1ztOjQZQmMYOZHQAtT9d71ZZGeBG0mdfRTHkYo\nH6dcyUmbif2zBqvIxXsrspuvwSKba+TymJjUQzUdd3pTnpJJC708cOqRKJ5gnZaU\nHlJDD1PI3Jq51htdfdVOoXl82WAk8dgJE5ipD4e+pa3swV9EWEM1cVoLic8sUqLM\nJQxyMGtC+xe3zUKpvyHnG/R6lBTzfvxN6mNCUfu3CQKBgQD9uvC//uZ22D72HT+T\nA5Ee62VUxjaxnxx+lednv/YI/sNmp/z/uwo2Ur1e+sJexjygI4SQkuiRXCuWyYhD\nrrd8jvrJEhggYuWKF7wrn/o42bLg4rKSRwwFB1kpSRnDv7YZNPQGo1yWIZqRQHF7\nwRMYZgapBlUaEnwR4UD3FrFFWQKBgQC7vHZZk8+RnQOS66CIvgJFtIDy7PvWKKVR\n7atPpNExWiow3PmFW2qaVYuzc8SRiFPZfL6VguFcPhdbd4HrAZzyguTVOQHg2/4W\n3D4A3gdY9x3mWTCRm9ueN+ArZ+ErZSVwQ+OBxke92bYhNsft1hNschIJizIZ9Pl+\nXOMpqZppbQKBgGdCH94S71moUZ85cfjzd6i8paVlcTbCCQefG+iGH6uzenQZo4Wz\nacmHzJeNt3J4fI2zRqzLjKgzeW3JIJJi1Tt0uK0Blx3/AWk8lZCvb1aZigmpWIDd\nNxAI2IlLvZeDOqlxemoFK5XRoSTBtC1n+sxwIP/CmvmcUi+4mwazjnspAoGBAJwQ\nus4Su35QadUsPiMO2fK6cGwCKATLe0tVaZFm8WS2kNZYDLIY4dD1BpKizakyDIqD\nUigWSmQVVfN6sKz9hUxxFexPXMlh+KNmacDs0mzZ2ahRQrf5OiQYTSmoTJ53khz2\nwt1ySNeBcg/Aa4nC6hi/51C5v2emp/WtIEbVMIEtAoGBAOUHQEPG05q52QsK1M5z\nNppsx3dVZgpT65wdLQvRwla8ivhYl3mr6726dTA80cw4crsyVUIgoPUdX2Ok9wGi\nhDuOOuMIdYf3jC+N9BW6tlzw1oTtOOwVhc3PbZwhMA4WtlaeTnUO5dmHaKKjYmEk\nxndN9To0bvqxRlCQk4UvYitU\n-----END PRIVATE KEY-----\n",
+  "client_email": "galacticwolverines@resonant-gizmo-387405.iam.gserviceaccount.com",
+  "client_id": "114671271835257320415",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/galacticwolverines%40resonant-gizmo-387405.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
