@@ -23,20 +23,33 @@ public class Star {
 	private int width;
 	private int[][][] pixels;
 	private Color avgColor;
-	private double temperature = -1.0;
+	private double temperature = 0.0;
 	private double luminosity = -1.0;
 	private double radius = -1.0;
 	private double absoluteMagnitude = -1.0;
 	private String starColor;
 	private String spectralClass;
 	
+	public static void main(String[] args) {
+		
+		Star s = new Star("Red-Supergiant-Star-removebg-preview.png");
+		System.out.println(s);
+		
+	}
+	
 	public Star(String path) {
 		
-		fileName = path.substring(path.lastIndexOf("\\") + 1);
+		fileName = path;
+		Image img = getImage(fileName);
 		Dimension dim = getImageDim();
 		width = dim.width;
 		height = dim.height;
-		pixels = getPixels(toBufferedImage(getImage(fileName)));
+		try {
+			pixels = getPixels((BufferedImage)ImageIO.read(new File(this.path)));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		getAvgColor();
 		temperature = estimateTemperature();
 		setStarColor();
@@ -95,7 +108,6 @@ public class Star {
     }
 
     public double calculateAbsoluteMagnitude(double luminosity, double radius) {
-        if (absoluteMagnitude != -1.0) return absoluteMagnitude;
     	
     	// Calculate the absolute magnitude using luminosity and radius
         double absoluteMagnitude = 4.83 - 2.5 * Math.log10(luminosity) - 2.5 * Math.log10(radius);
@@ -104,7 +116,6 @@ public class Star {
     }
 	
 	public double calculateLuminosity() {
-        if (luminosity != -1.0) return luminosity;
 		
 		double luminosity;
 
@@ -155,7 +166,6 @@ public class Star {
     }
 	
 	public double approximateRadius() {
-        if (radius != -1.0) return radius;
 		
 		double radius;
 		
@@ -197,8 +207,7 @@ public class Star {
     }
 	
 	public double estimateTemperature() {
-        if (temperature != -1.0) return temperature;
-		
+        
 		double r = avgColor.getRed() / 255.0;
         double g = avgColor.getGreen() / 255.0;
         double b = avgColor.getBlue() / 255.0;
@@ -228,7 +237,9 @@ public class Star {
 		int blueValue = avgColor.getBlue();
 		int greenValue = avgColor.getGreen();
 		
-		if (redValue - 50 > greenValue && redValue - 50 > blueValue) {
+		System.out.println(avgColor);
+		
+		if (redValue > greenValue && redValue > blueValue) {
 		    starColor = "Red";
 		} else if (blueValue > redValue && blueValue > greenValue) {
 		    starColor = "Blue-White";
@@ -257,27 +268,30 @@ public class Star {
 	}
 	
 	private Color getAvgColor() {
-		if (avgColor != null) return avgColor;
 		
 		int avgR = 0;
 		int avgB = 0;
 		int avgG = 0;
 		int avgA = 0;
 		
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
+		int counter = 0;
+		for (int i = 0; i < pixels.length; i++) {
+			for (int j = 0; j < pixels[i].length; j++) {
+				if (pixels[i][j][0] <= 10 && pixels[i][j][1] <= 10 && pixels[i][j][2] <= 10) continue;
 				avgR += pixels[i][j][0];
 				avgB += pixels[i][j][1];
 				avgG += pixels[i][j][2];
 				avgA += pixels[i][j][3];
+				counter++;
 			}
 		}
+
+		//int area = width * height;
 		
-		int area = width * height;
-		avgR = avgR / area;
-		avgB = avgB / area;
-		avgG = avgG / area;
-		avgA = avgA / area;
+		avgR = avgR / counter;
+		avgB = avgB / counter;
+		avgG = avgG / counter;
+		avgA = avgA / counter;
 		
 		avgColor = new Color(avgR, avgB, avgG, avgA);
 		return avgColor;
@@ -288,6 +302,7 @@ public class Star {
 	    for (int x = 0; x < image.getWidth(); x++) {
 	        for (int y = 0; y < image.getHeight(); y++) {
 	            Color c = new Color(image.getRGB(x, y), true);
+	            
 	            result[y][x][0] = c.getRed();
 	            result[y][x][1] = c.getGreen();
 	            result[y][x][2] = c.getBlue();
@@ -354,25 +369,6 @@ public class Star {
 		}
 		return tempImage;
 	}
-	
-	private static BufferedImage toBufferedImage(Image img)
-	{
-	    if (img instanceof BufferedImage)
-	    {
-	        return (BufferedImage) img;
-	    }
-
-	    // Create a buffered image with transparency
-	    BufferedImage bimage = new BufferedImage(img.getWidth(null), img.getHeight(null), BufferedImage.TYPE_INT_ARGB);
-
-	    // Draw the image on to the buffered image
-	    Graphics2D bGr = bimage.createGraphics();
-	    bGr.drawImage(img, 0, 0, null);
-	    bGr.dispose();
-
-	    // Return the buffered image
-	    return bimage;
-	}
 
 	public double getTemperature() {
 		return temperature;
@@ -398,6 +394,19 @@ public class Star {
 		return spectralClass;
 	}
 
+	@Override
+	public String toString() {
+		return "Star [\n"
+				+ "temperature: " + temperature + ",\n"
+				+ "luminosity: " + luminosity + ",\n"
+				+ "radius: " + radius + ",\n"
+				+ "absoluteMagnitude: " + absoluteMagnitude + ",\n"
+				+ "starColor: " + starColor + ",\n"
+				+ "spectralClass: " + spectralClass
+				+ "\n]";
+	}
+	
+	
 	
 	
 }
