@@ -1,13 +1,8 @@
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.FileSystems;
 import java.util.Iterator;
 
 import javax.imageio.ImageIO;
@@ -32,15 +27,15 @@ public class Star {
 	
 	public static void main(String[] args) {
 		
-		Star s = new Star("Red-Supergiant-Star-removebg-preview.png");
+		Star s = new Star("C:\\Users\\nikhil\\Downloads\\Red-Supergiant-Star-removebg-preview.png");
 		System.out.println(s);
 		
 	}
 	
 	public Star(String path) {
 		
-		fileName = path;
-		Image img = getImage(fileName);
+		fileName = path.substring(path.lastIndexOf("/") + 1);
+		this.path = path;
 		Dimension dim = getImageDim();
 		width = dim.width;
 		height = dim.height;
@@ -355,19 +350,6 @@ public class Star {
 	        }
 	    }
 	    return result;
-	}
-	
-	private Image getImage(String fileName) {
-		Image tempImage = null;
-		this.fileName = fileName;
-		try {
-			this.path = FileSystems.getDefault().getPath(new String("./")).toAbsolutePath().getParent() + "\\src\\" + fileName;
-			URL imageURL = Star.class.getResource(fileName);
-			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return tempImage;
 	}
 
 	public double getTemperature() {
